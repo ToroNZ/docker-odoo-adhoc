@@ -2,6 +2,7 @@ version: '2'
 services:
     db:
         image: postgres:9.5
+        restart: always
         environment:
             - POSTGRES_USER=odoo
             - POSTGRES_PASSWORD=odoo
@@ -13,6 +14,7 @@ services:
         #     dockerfile: Dockerfile-dev-$ODOO_VERSION
         # TODO ver como hacemos par que esto se cambie desde otro lugar
         image: $ODOO_IMAGE:$ODOO_VERSION
+        restart: always
         external_links:
             - aeroo:aeroo
         depends_on:
